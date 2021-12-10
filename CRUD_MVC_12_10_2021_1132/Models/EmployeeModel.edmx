@@ -5,15 +5,9 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="SQL_basicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SQL_basic.dbo.EMPLOYEEMASTER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EMPLOYEEMASTER">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="EMPCODE" />
-            <PropertyRef Name="EMPNAME" />
-            <PropertyRef Name="DESIGNATION" />
-            <PropertyRef Name="SALARY" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EMPCODE" Type="int" Nullable="false" />
@@ -22,15 +16,7 @@ warning 6002: The table/view 'SQL_basic.dbo.EMPLOYEEMASTER' does not have a prim
           <Property Name="SALARY" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="SQL_basicModelStoreContainer">
-          <EntitySet Name="EMPLOYEEMASTER" EntityType="Self.EMPLOYEEMASTER" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EMPLOYEEMASTER].[ID] AS [ID], 
-    [EMPLOYEEMASTER].[EMPCODE] AS [EMPCODE], 
-    [EMPLOYEEMASTER].[EMPNAME] AS [EMPNAME], 
-    [EMPLOYEEMASTER].[DESIGNATION] AS [DESIGNATION], 
-    [EMPLOYEEMASTER].[SALARY] AS [SALARY]
-    FROM [dbo].[EMPLOYEEMASTER] AS [EMPLOYEEMASTER]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="EMPLOYEEMASTER" EntityType="Self.EMPLOYEEMASTER" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -40,10 +26,6 @@ warning 6002: The table/view 'SQL_basic.dbo.EMPLOYEEMASTER' does not have a prim
         <EntityType Name="EMPLOYEEMASTER">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="EMPCODE" />
-            <PropertyRef Name="EMPNAME" />
-            <PropertyRef Name="DESIGNATION" />
-            <PropertyRef Name="SALARY" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EMPCODE" Type="Int32" Nullable="false" />

@@ -3,10 +3,6 @@
   <EntityType Name="EMPLOYEEMASTER">
     <Key>
       <PropertyRef Name="ID" />
-      <PropertyRef Name="EMPCODE" />
-      <PropertyRef Name="EMPNAME" />
-      <PropertyRef Name="DESIGNATION" />
-      <PropertyRef Name="SALARY" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="EMPCODE" Type="Int32" Nullable="false" />
