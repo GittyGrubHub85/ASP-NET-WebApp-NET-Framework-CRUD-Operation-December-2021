@@ -6,13 +6,52 @@
 
 <h2>Create</h2>
 
+<script type="text/javascript">
+    
+    function Print() {
+        alert('Hello!')
+    }
+
+    function Print1() {
+        alert('field is required.')
+    }
+
+    function Print2() {
+        alert('The field is incorrect. Try again.')
+    }
+
+    function redirect() {
+        var getEmployeeInfo1 = document.getElementById("EMPCODE").value;
+        var getEmployeeInfo2 = document.getElementById("EMPNAME").value;
+        var getEmployeeInfo3 = document.getElementById("DESIGNATION").value;
+        var getEmployeeInfo4 = document.getElementById("SALARY").value;
+        if (getEmployeeInfo1 != "" || getEmployeeInfo2 != "" || getEmployeeInfo3 != "" || getEmployeeInfo1 != "") {
+            if (getEmployeeInfo1 != "" && getEmployeeInfo4 != "") {
+                //alert("The field is incomplete, try again!")
+            }else{
+                //alert("The field is incomplete!")
+            }
+        } else {
+            
+            alert("Field is required!")
+
+        }
+    } 
+    
+
+    /*$(document).ready(function () {
+        $("#projectName").on('input', function () {
+            $('#identifier').val($(this).val());
+        });
+    });*/
+</script>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>EMPLOYEEMASTER</h4>
+        <h4>CREATE EMPLOYEE</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -47,11 +86,13 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <form action="/" method="post">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" onclick="redirect()" />
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 }
 

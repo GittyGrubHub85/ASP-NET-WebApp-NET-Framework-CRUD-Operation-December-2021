@@ -7,8 +7,22 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
+
+<!--
+<form asp-controller="Movies" asp-action="Index">
+    <p>
+        Search: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>-->
+@using (Html.BeginForm("Index", "Employee", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" value="Filter" />
+}
+
 <table class="table">
     <tr>
         <th>
@@ -25,27 +39,28 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMPCODE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMPNAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DESIGNATION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SALARY)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMPCODE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMPNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESIGNATION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SALARY)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
